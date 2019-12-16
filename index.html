@@ -1,14 +1,16 @@
-<!DOCTYPE html>
- <html>
- <head>
- <meta charset="utf-8"/>
- <title>О стандарте HTML5</title>
- </head>
- <body>
- С 28 октября 2014 года Консорциум Всемирной паутины официально рекомендует при создании использовать HTML5, который является языком для структурирования содержимого всемирной паутины.
- Вот так.
- 888
- 999
- 0000
- </body>
- </html> 
+<<html>
+    <body>
+    Имя: <input id="user" type="text" size="20"><br>
+    <button id="submit">Отправить</button>
+    <div id="message"></div>
+    </body>
+    <script>
+     submit.onclick=async function(){
+        let response = await fetch("/ajax?name="+encodeURIComponent(user.value));
+        if (response.ok) { 
+           let data = await response.json();
+           message.innerText=data.message;
+        }
+     };
+    </script>
+    </html>
